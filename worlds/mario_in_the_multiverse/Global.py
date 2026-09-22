@@ -1,0 +1,35 @@
+LevelList = [
+    "Super Star Ultra",
+    "Mario in Bikini Bottom",
+    "Piranha Pit",
+    "Mario Mushroom Havoc",
+    "Opportunity",
+    "Bioshock Rapture",
+    "Beyond the Cursed Pizza",
+    "Mario New Mecca",
+    "DOOM",
+    "From Russia With Love",
+    "Eucreteak City",
+    "N-Sanity Island",
+    "The Walking Dead: Saints, Sinners, & Mario",
+    "Mario in Hamsterball",
+    "Environmental Station M"
+]
+
+AbilityList = [
+    "Cutter",
+    "Bubble Hat",
+    "Inkling",
+    "Shock Rocket",
+    "Phasewalk",
+    "Helmet & Drill",
+    "Pizza Knight",
+    "Chronos",
+    "Doom Shotgun",
+    "Gadget Watch",
+    "HM Fly",
+    "Aku Aku",
+    "Esteemed Mortal",
+    "Hamster Ball",
+    "Dash Booster",
+]

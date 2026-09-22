@@ -92,6 +92,8 @@ async def main():
     ctx.run_gui()
     ctx.run_cli()
 
+    ctx.ui.base_title = "Mario in the Multiverse Client"
+
     while not ctx.exit_event.is_set():
         if ctx.slot is not None:
 

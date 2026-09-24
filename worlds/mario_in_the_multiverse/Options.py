@@ -7,7 +7,12 @@ class StarsToWin(Range):
     range_end = 123
     default = 70
 
+class ItemLevels(Toggle):
+    display_name = "Levels are Items"
+    default = True
+
 @dataclass
 class MitmOptions(PerGameCommonOptions):
     stars_to_win: StarsToWin
+    item_levels : ItemLevels
     death_link: DeathLink

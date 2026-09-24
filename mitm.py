@@ -70,6 +70,8 @@ class MitmContext(CommonContext):
                 sendstr = "Got " + self.item_names.lookup_in_game(item.item) + " from " + self.player_names[item.player]
                 process.write_process_memory(archipelago_buffer_start + 4*8, str, value = n64_string(sendstr + '\0') )
 
+                process.write_process_memory(archipelago_buffer_start + 4*22, int, value = 400)
+
                 mem_slot = (item.item-1) // 32
                 mem_bit = (item.item-1) % 32
                 mem_slot *= 4

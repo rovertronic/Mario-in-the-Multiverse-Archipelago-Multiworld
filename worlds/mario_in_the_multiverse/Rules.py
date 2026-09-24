@@ -138,6 +138,7 @@ def set_all_rules(world: MitmWorld) -> None:
 
     # Eucreteak City
     world.set_rule(world.get_location("Eucreteak City Star 1"), Has("HM Fly"))
+    world.set_rule(world.get_location("Eucreteak City Star 1"), Has("Inkling"))
     world.set_rule(world.get_location(
         "Eucreteak City Star 3"),
         HasAll("Pizza Knight", "HM Fly", "Chronos"),

@@ -104,8 +104,14 @@ def create_all_items(world: MitmWorld) -> None:
     ]
 
     #TODO: Make level items optional
-    for level in LevelList:
-        itempool.append(world.create_item(level))
+
+    unlock_first = world.random.randint(0,15)
+    
+    for i in range(15):
+        if i == unlock_first:
+            world.push_precollected(world.create_item(LevelList[i]))
+        else:
+            itempool.append(world.create_item(LevelList[i]))
 
     for i in range(100):
         itempool.append(world.create_item("Power Star") )

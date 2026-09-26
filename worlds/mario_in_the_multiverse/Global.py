@@ -9,7 +9,7 @@ LevelList = [
     "Mario New Mecca",
     "DOOM",
     "From Russia With Love",
-    "Eucreteak City",
+    "Ecruteak City",
     "N-Sanity Island",
     "The Walking Dead: Saints, Sinners, & Mario",
     "Mario in Hamsterball",

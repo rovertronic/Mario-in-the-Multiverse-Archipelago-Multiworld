@@ -17,8 +17,6 @@ LOCATION_NAME_TO_ID = {
     "Shop Item 4" : 4,
     "Shop Item 5" : 5,
 
-    #"Bob-Omb Battlefield Painting" : 9
-
     "Cutter" : 140,
     "Bubble Hat" : 141,
     "Inkling" : 142,
@@ -49,7 +47,11 @@ for ability in AbilityList:
     LOCATION_NAME_TO_ID[location_name] = idinc
     idinc += 1
 
-
+idinc = 155
+for level in LevelList:
+    location_name = level + " Painting"
+    LOCATION_NAME_TO_ID[location_name] = idinc
+    idinc += 1
 
 class MitmLocation(Location):
     game = "Mario in the Multiverse"
@@ -78,5 +80,10 @@ def create_regular_locations(world: MitmWorld) -> None:
         for i in range(8):
             location_name = level + " Star " + str(i+1)
             world.get_region(level).locations.append(MitmLocation(world.player, location_name, world.location_name_to_id[location_name], world.get_region(level)) )
+
+    # Painting Locations
+    for level in LevelList:
+        location_name = level + " Painting"
+        world.get_region(level).locations.append(MitmLocation(world.player, location_name, world.location_name_to_id[location_name], world.get_region(level)) )
 
     

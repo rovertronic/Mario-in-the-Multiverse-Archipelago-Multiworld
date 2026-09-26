@@ -25,7 +25,7 @@ def n64_string(s):
     return b"".join(
         data[i:i+4][::-1]
         for i in range(0, len(data), 4)
-    )
+    )[:45]
 
 def name_to_model_id(name) -> int:
     name_lower = name.lower()
@@ -181,9 +181,10 @@ async def main():
                     "locations":  list(range(9, 120 + 9))
                 }])
 
+                # Abilities & Paintings
                 await ctx.send_msgs([{
                     "cmd": "LocationScouts",
-                    "locations":  list(range(140, 140 + 15))
+                    "locations":  list(range(140, 140 + 15 + 15))
                 }])
 
             # Send locations
@@ -210,11 +211,18 @@ async def main():
             # Send model ids upon request
             ap_model_request = process.read_process_memory(archipelago_buffer_start + 4*31, int)
             if ap_model_request > 0:
-                print("ok...")
                 info = ctx.locations_info.get(ap_model_request)
                 if info:
-                    print("GET SENT!")
                     process.write_process_memory(archipelago_buffer_start + 4*32, int, value = name_to_model_id(ctx.item_names.lookup_in_slot(info.item,info.player) )  )
+
+            # Toggle already-sent flags
+            for location_id in ctx.checked_locations:
+                mem_slot = (location_id) // 32
+                mem_bit = (location_id) % 32
+                mem_slot *= 4
+
+                curflags = process.read_process_memory(archipelago_buffer_start + 4*23 + mem_slot, int)
+                process.write_process_memory(archipelago_buffer_start + 4*23 + mem_slot, int, value = curflags | (1 << mem_bit))
 
         await asyncio.sleep(0.1)
 

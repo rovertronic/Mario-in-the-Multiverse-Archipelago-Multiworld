@@ -5,7 +5,7 @@ class StarsToWin(Range):
     display_name = "Stars needed to get to Centrum Omnium"
     range_start = 1
     range_end = 123
-    default = 70
+    default = 80
 
 class ItemLevels(Toggle):
     display_name = "Levels are Items"

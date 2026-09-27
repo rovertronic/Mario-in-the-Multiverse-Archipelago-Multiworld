@@ -11,8 +11,17 @@ class ItemLevels(Toggle):
     display_name = "Levels are Items"
     default = True
 
+class Shopsanity(Toggle):
+    display_name = "Shopsanity"
+    default = True
+class Keysanity(Toggle):
+    display_name = "Keysanity"
+    default = True
+
 @dataclass
 class MitmOptions(PerGameCommonOptions):
     stars_to_win: StarsToWin
     item_levels : ItemLevels
+    shopsanity : Shopsanity
+    keysanity : Keysanity
     death_link: DeathLink

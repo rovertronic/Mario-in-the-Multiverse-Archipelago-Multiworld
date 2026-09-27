@@ -32,6 +32,10 @@ LOCATION_NAME_TO_ID = {
     "Esteemed Mortal" : 152,
     "Hamster Ball" : 153,
     "Dash Booster" : 154,
+
+    "Blue Skull Key" : 170,
+    "Red Skull Key" : 171,
+    "Boat Key" : 172,
 }
 
 idinc = 9
@@ -85,5 +89,10 @@ def create_regular_locations(world: MitmWorld) -> None:
     for level in LevelList:
         location_name = level + " Painting"
         world.get_region(level).locations.append(MitmLocation(world.player, location_name, world.location_name_to_id[location_name], world.get_region(level)) )
+
+    # Manual Locations
+    world.get_region("DOOM").locations.append(MitmLocation(world.player, "Blue Skull Key", world.location_name_to_id["Blue Skull Key"], world.get_region("DOOM")) )
+    world.get_region("DOOM").locations.append(MitmLocation(world.player, "Red Skull Key", world.location_name_to_id["Red Skull Key"], world.get_region("DOOM")) )
+    world.get_region("From Russia With Love").locations.append(MitmLocation(world.player, "Boat Key", world.location_name_to_id["Boat Key"], world.get_region("From Russia With Love")) )
 
     

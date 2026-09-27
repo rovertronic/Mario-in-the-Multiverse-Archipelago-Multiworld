@@ -6,6 +6,7 @@ from PyMemoryEditor import ProcessOperationsEnum
 import CommonClient
 from CommonClient import CommonContext, server_loop, get_base_parser, handle_url_arg
 from argparse import Namespace
+from NetUtils import ClientStatus
 
 import colorama
 
@@ -223,6 +224,11 @@ async def main():
 
                 curflags = process.read_process_memory(archipelago_buffer_start + 4*23 + mem_slot, int)
                 process.write_process_memory(archipelago_buffer_start + 4*23 + mem_slot, int, value = curflags | (1 << mem_bit))
+
+            # Win if won
+            if process.read_process_memory(archipelago_buffer_start + 4*33, int):
+                await ctx.send_msgs([{"cmd": "StatusUpdate", "status": ClientStatus.CLIENT_GOAL}])
+                ctx.finished_game = True
 
         await asyncio.sleep(0.1)
 

@@ -49,37 +49,39 @@ def set_all_rules(world: MitmWorld) -> None:
         world.set_rule( world.get_entrance(level + " Entrance"), Has(level)  )
 
     # Super Star Ultra
+    # 1 - No Rule
+    # 2 - No Rule
+    # 3 - No Rule
     world.set_rule(world.get_location("Super Star Ultra Star 4"), need_rope_cut)
+    # 5 - No Rule
     world.set_rule(world.get_location("Super Star Ultra Star 6"), Has("Phasewalk"))
     world.set_rule(world.get_location("Super Star Ultra Star 7"), Has("Shock Rocket"))
     world.set_rule(world.get_location("Super Star Ultra Star 8"), Has("Gadget Watch"))
 
     # Mario in Bikini Bottom
-    world.set_rule(world.get_location(
-        "Mario in Bikini Bottom Star 2"),
-        HasAll("Cutter", "Bubble Hat"),
-    )
+    # 1 - No Rule
+    world.set_rule(world.get_location("Mario in Bikini Bottom Star 2"), HasAll("Cutter", "Bubble Hat"))
     world.set_rule(world.get_location("Mario in Bikini Bottom Star 4"), Has("Bubble Hat"))
     world.set_rule(world.get_location("Mario in Bikini Bottom Star 5"), Has("Helmet & Drill"))
     world.set_rule(world.get_location("Mario in Bikini Bottom Star 6"), Has("Pizza Knight"))
     world.set_rule(world.get_location("Mario in Bikini Bottom Star 7"), Has("Phasewalk"))
+    # 8 - No Rule
 
     # Piranha Pit
     world.set_rule(world.get_location("Piranha Pit Star 1"), Has("Inkling"))
+    # 2 - No Rule
     world.set_rule(world.get_location("Piranha Pit Star 3"), Has("Inkling"))
     world.set_rule(world.get_location("Piranha Pit Star 4"), Has("Bubble Hat"))
+    # 5 - No Rule
     world.set_rule(world.get_location("Piranha Pit Star 6"), Has("Shock Rocket"))
     world.set_rule(world.get_location("Piranha Pit Star 7"), Has("Helmet & Drill"))
-    world.set_rule(world.get_location("Piranha Pit Star 1"), Has("Cutter"))
+    world.set_rule(world.get_location("Piranha Pit Star 8"), Has("Cutter"))
 
     # Mario Mushroom Havoc
     world.set_rule(world.get_location("Mario Mushroom Havoc Star 1"), Has("Shock Rocket"))
     world.set_rule(world.get_location("Mario Mushroom Havoc Star 2"), Has("Shock Rocket"))
     world.set_rule(world.get_location("Mario Mushroom Havoc Star 3"), Has("Shock Rocket"))
-    world.set_rule(world.get_location(
-        "Mario Mushroom Havoc Star 4"),
-        HasAll("Shock Rocket", "Gadget Watch", "Helmet & Drill"),
-    )
+    world.set_rule(world.get_location("Mario Mushroom Havoc Star 4"), HasAll("Shock Rocket", "Gadget Watch", "Helmet & Drill"))
     world.set_rule(world.get_location("Mario Mushroom Havoc Star 5"), Has("Cutter") & Has("Shock Rocket"))
     world.set_rule(world.get_location("Mario Mushroom Havoc Star 6"), Has("Aku Aku") & Has("Shock Rocket"))
     world.set_rule(world.get_location("Mario Mushroom Havoc Star 7"), Has("Shock Rocket"))
@@ -87,44 +89,34 @@ def set_all_rules(world: MitmWorld) -> None:
 
     # Opportunity
     world.set_rule(world.get_location("Opportunity Star 1"), Has("Phasewalk"))
+    # 2 - No Rule
     world.set_rule(world.get_location("Opportunity Star 3"), Has("HM Fly"))
     world.set_rule(world.get_location("Opportunity Star 4"), Has("HM Fly"))
+    # 5 - No Rule
     world.set_rule(world.get_location("Opportunity Star 6"), Has("HM Fly"))
     world.set_rule(world.get_location("Opportunity Star 7"), Has("Doom Shotgun"))
+    # 8 - No Rule
 
     # Bioshock Rapture
+    # 1 - No Rule
+    # 2 - No Rule
     world.set_rule(world.get_location("Bioshock Rapture Star 3"), Has("Helmet & Drill"))
-    world.set_rule(world.get_location(
-        "Bioshock Rapture Star 4"),
-        HasAll("Helmet & Drill", "Shock Rocket", "Phasewalk"),
-    )
-    world.set_rule(world.get_location(
-        "Bioshock Rapture Star 5"),
-        HasAll("Helmet & Drill", "Phasewalk", "Inkling"),
-    )
+    world.set_rule(world.get_location("Bioshock Rapture Star 4"), HasAll("Helmet & Drill", "Shock Rocket", "Phasewalk"))
+    world.set_rule(world.get_location("Bioshock Rapture Star 5"), HasAll("Helmet & Drill", "Phasewalk", "Inkling"))
     world.set_rule(world.get_location("Bioshock Rapture Star 6"), Has("Helmet & Drill"))
     world.set_rule(world.get_location("Bioshock Rapture Star 7"), Has("Helmet & Drill"))
     world.set_rule(world.get_location("Bioshock Rapture Star 8"), Has("Cutter"))
 
     # Beyond the Cursed Pizza
+    # 1 - No Rule
     world.set_rule(world.get_location("Beyond the Cursed Pizza Star 2"), Has("Pizza Knight"))
-    world.set_rule(world.get_location(
-        "Beyond the Cursed Pizza Star 3"),
-        HasAll("Pizza Knight", "HM Fly"),
-    )
+    world.set_rule(world.get_location("Beyond the Cursed Pizza Star 3"), HasAll("Pizza Knight", "HM Fly"))
     world.set_rule(world.get_location("Beyond the Cursed Pizza Star 4"), Has("Pizza Knight"))
-    world.set_rule(world.get_location(
-        "Beyond the Cursed Pizza Star 5"),
-        HasAll("Pizza Knight", "Dash Booster"),
-    )
+    world.set_rule(world.get_location("Beyond the Cursed Pizza Star 5"), HasAll("Pizza Knight", "Dash Booster"))
     world.set_rule(world.get_location("Beyond the Cursed Pizza Star 6"), Has("Pizza Knight"))
-    world.set_rule(world.get_location(
-        "Beyond the Cursed Pizza Star 8"),
-        HasAll("Pizza Knight", "Dash Booster"),
-    )
+    world.set_rule(world.get_location("Beyond the Cursed Pizza Star 8"), HasAll("Pizza Knight", "Dash Booster"))
 
     # Mario New Mecca
-    # "Chronos" intentionally matches ITEM_NAME_TO_ID as supplied.
     world.set_rule(world.get_location("Mario New Mecca Star 1"), Has("Chronos"))
     world.set_rule(world.get_location("Mario New Mecca Star 2"), Has("Pizza Knight") & Has("Chronos"))
     world.set_rule(world.get_location("Mario New Mecca Star 3"), Has("Chronos"))
@@ -132,122 +124,83 @@ def set_all_rules(world: MitmWorld) -> None:
     world.set_rule(world.get_location("Mario New Mecca Star 5"), Has("Chronos"))
     world.set_rule(world.get_location("Mario New Mecca Star 6"), Has("Chronos"))
     world.set_rule(world.get_location("Mario New Mecca Star 7"), Has("Phasewalk") & Has("Chronos"))
+    world.set_rule(world.get_location("Mario New Mecca Star 8"), Has("Chronos"))
 
     # DOOM
-    world.set_rule(world.get_location("DOOM Star 1"), Has("Doom Shotgun"))
-    world.set_rule(world.get_location("DOOM Star 2"), Has("Doom Shotgun"))
-    world.set_rule(world.get_location("DOOM Star 3"), Has("Doom Shotgun"))
-    world.set_rule(world.get_location("DOOM Star 4"), Has("Doom Shotgun"))
-    world.set_rule(world.get_location(
-        "DOOM Star 6"),
-        HasAll("Doom Shotgun", "Inkling"),
-    )
-    world.set_rule(world.get_location("DOOM Star 8"), Has("Doom Shotgun"))
+    world.set_rule(world.get_location("DOOM Star 1"), Has("Doom Shotgun") & Has("Blue Skull Key"))
+    world.set_rule(world.get_location("DOOM Star 2"), Has("Doom Shotgun") & Has("Blue Skull Key"))
+    world.set_rule(world.get_location("DOOM Star 3"), Has("Doom Shotgun") & Has("Blue Skull Key"))
+    world.set_rule(world.get_location("DOOM Star 4"), Has("Doom Shotgun") & Has("Blue Skull Key"))
+    world.set_rule(world.get_location("DOOM Star 5"), Has("Red Skull Key") & Has("Blue Skull Key"))
+    world.set_rule(world.get_location("DOOM Star 6"), HasAll("Doom Shotgun", "Inkling") & Has("Blue Skull Key"))
+    world.set_rule(world.get_location("DOOM Star 7"), Has("Doom Shotgun") & Has("Blue Skull Key"))
+    world.set_rule(world.get_location("DOOM Star 8"), Has("Doom Shotgun") & Has("Blue Skull Key"))
 
     # From Russia With Love
-    world.set_rule(world.get_location(
-        "From Russia With Love Star 1"),
-        HasAll("Shock Rocket", "Gadget Watch"),
-    )
-    world.set_rule(world.get_location(
-        "From Russia With Love Star 2"),
-        HasAll("Gadget Watch", "Doom Shotgun", "Phasewalk"),
-    )
-    world.set_rule(world.get_location(
-        "From Russia With Love Star 3"),
-        HasAll("Doom Shotgun", "Gadget Watch"),
-    )
+    world.set_rule(world.get_location("From Russia With Love Star 1"), HasAll("Shock Rocket", "Gadget Watch"))
+    world.set_rule(world.get_location("From Russia With Love Star 2"), HasAll("Gadget Watch", "Doom Shotgun", "Phasewalk"))
+    world.set_rule(world.get_location("From Russia With Love Star 3"), HasAll("Doom Shotgun", "Gadget Watch"))
     world.set_rule(world.get_location("From Russia With Love Star 4"), Has("Gadget Watch"))
-    world.set_rule(world.get_location(
-        "From Russia With Love Star 6"),
-        HasAll("Gadget Watch", "Inkling"),
-    )
+    # 5 - No Rule
+    world.set_rule(world.get_location("From Russia With Love Star 6"), HasAll("Gadget Watch", "Inkling"))
     world.set_rule(world.get_location("From Russia With Love Star 7"), Has("Gadget Watch"))
-    world.set_rule(world.get_location(
-        "From Russia With Love Star 8"),
-        HasAll("Gadget Watch", "Shock Rocket"),
-    )
+    world.set_rule(world.get_location("From Russia With Love Star 8"), HasAll("Gadget Watch", "Shock Rocket"))
 
     # Ecruteak City
     world.set_rule(world.get_location("Ecruteak City Star 1"), Has("HM Fly"))
-    world.set_rule(world.get_location(
-        "Ecruteak City Star 3"),
-        HasAll("Pizza Knight", "HM Fly", "Chronos"),
-    )
-    world.set_rule(world.get_location(
-        "Ecruteak City Star 4"),
-        HasAll("Helmet & Drill", "Pizza Knight"),
-    )
+    # 2 - No Rule
+    world.set_rule(world.get_location("Ecruteak City Star 3"), HasAll("Pizza Knight", "HM Fly", "Chronos"))
+    world.set_rule(world.get_location("Ecruteak City Star 4"), HasAll("Helmet & Drill", "Pizza Knight"))
     world.set_rule(world.get_location("Ecruteak City Star 5"), Has("HM Fly"))
     world.set_rule(world.get_location("Ecruteak City Star 6"), Has("Shock Rocket"))
-    world.set_rule(world.get_location(
-        "Ecruteak City Star 7"),
-        HasAll("Gadget Watch", "HM Fly"),
-    )
+    world.set_rule(world.get_location("Ecruteak City Star 7"), HasAll("Gadget Watch", "HM Fly"))
     world.set_rule(world.get_location("Ecruteak City Star 8"), Has("HM Fly"))
 
     # N-Sanity Island
     world.set_rule(world.get_location("N-Sanity Island Star 1"), Has("Aku Aku"))
+    #2 - No Rule
+    #3 - No Rule
     world.set_rule(world.get_location("N-Sanity Island Star 4"), Has("HM Fly"))
     world.set_rule(world.get_location("N-Sanity Island Star 5"), Has("Helmet & Drill"))
-    world.set_rule(world.get_location(
-        "N-Sanity Island Star 6"),
-        HasAll("Doom Shotgun", "Phasewalk"),
-    )
+    world.set_rule(world.get_location("N-Sanity Island Star 6"), HasAll("Doom Shotgun", "Phasewalk"))
     world.set_rule(world.get_location("N-Sanity Island Star 7"), Has("Aku Aku"))
     world.set_rule(world.get_location("N-Sanity Island Star 8"), Has("Aku Aku"))
 
     # The Walking Dead: Saints, Sinners, & Mario
-    world.set_rule(world.get_location(
-        "The Walking Dead: Saints, Sinners, & Mario Star 1"),
-        Has("Pizza Knight"),
-    )
-    world.set_rule(world.get_location(
-        "The Walking Dead: Saints, Sinners, & Mario Star 2"),
-        Has("Esteemed Mortal"),
-    )
-    world.set_rule(world.get_location(
-        "The Walking Dead: Saints, Sinners, & Mario Star 3"),
-        Has("Gadget Watch"),
-    )
-    world.set_rule(world.get_location(
-        "The Walking Dead: Saints, Sinners, & Mario Star 4"),
-        Has("Gadget Watch"),
-    )
-    world.set_rule(world.get_location(
-        "The Walking Dead: Saints, Sinners, & Mario Star 5"),
-        Has("Helmet & Drill"),
-    )
-    world.set_rule(world.get_location("Bioshock Rapture Star 6"), Has("Doom Shotgun"))
-    world.set_rule(world.get_location(
-        "The Walking Dead: Saints, Sinners, & Mario Star 7"),
-        HasAll("Inkling", "Doom Shotgun"),
-    )
-    world.set_rule(world.get_location(
-        "The Walking Dead: Saints, Sinners, & Mario Star 8"),
-        HasAll("Inkling", "Shock Rocket"),
-    )
+    world.set_rule(world.get_location("The Walking Dead: Saints, Sinners, & Mario Star 1"), Has("Pizza Knight"))
+    world.set_rule(world.get_location("The Walking Dead: Saints, Sinners, & Mario Star 2"), Has("Esteemed Mortal"))
+    world.set_rule(world.get_location("The Walking Dead: Saints, Sinners, & Mario Star 3"), Has("Gadget Watch"))
+    world.set_rule(world.get_location("The Walking Dead: Saints, Sinners, & Mario Star 4"), Has("Gadget Watch"))
+    world.set_rule(world.get_location("The Walking Dead: Saints, Sinners, & Mario Star 5"), Has("Helmet & Drill"))
+    world.set_rule(world.get_location("The Walking Dead: Saints, Sinners, & Mario Star 6"), Has("Doom Shotgun"))
+    world.set_rule(world.get_location("The Walking Dead: Saints, Sinners, & Mario Star 7"), HasAll("Inkling", "Doom Shotgun"))
+    world.set_rule(world.get_location("The Walking Dead: Saints, Sinners, & Mario Star 8"), HasAll("Inkling", "Shock Rocket"))
 
     # Mario in Hamsterball
+    # 1 - No Rule
+    # 2 - No Rule
+    # 3 - No Rule
     world.set_rule(world.get_location("Mario in Hamsterball Star 4"), Has("HM Fly"))
-    world.set_rule(world.get_location("Mario in Hamsterball Star 4"), Has("HM Fly"))
+    world.set_rule(world.get_location("Mario in Hamsterball Star 6"), Has("HM Fly"))
+    world.set_rule(world.get_location("Mario in Hamsterball Star 7"), Has("HM Fly"))
     world.set_rule(world.get_location("Mario in Hamsterball Star 8"), Has("Hamster Ball"))
 
     # Environmental Station M
     world.set_rule(world.get_location("Environmental Station M Star 1"), Has("Dash Booster") | Has("HM Fly"))
     world.set_rule(world.get_location("Environmental Station M Star 2"), Has("Dash Booster"))
     world.set_rule(world.get_location("Environmental Station M Star 3"), Has("Pizza Knight"))
+    # 4 - No Rule
     world.set_rule(world.get_location("Environmental Station M Star 5"), Has("Dash Booster"))
     world.set_rule(world.get_location("Environmental Station M Star 6"), Has("Dash Booster"))
-    world.set_rule(world.get_location(
-        "Environmental Station M Star 7"),
-        HasAll("Aku Aku", "Dash Booster"),
-    )
-    world.set_rule(world.get_location(
-        "Environmental Station M Star 8"),
-        HasAll("Helmet & Drill", "Shock Rocket"),
-    )
+    world.set_rule(world.get_location("Environmental Station M Star 7"), HasAll("Aku Aku", "Dash Booster"))
+    world.set_rule(world.get_location("Environmental Station M Star 8"), HasAll("Helmet & Drill", "Shock Rocket"))
 
+
+    # Misc Rules
+    world.set_rule(world.get_location("Red Skull Key"), Has("Blue Skull Key"))
+    world.set_rule(world.get_location("Boat Key"), Has("Shock Rocket"))
+
+    # Rule to complete game
     all_abilities = Has("Cutter")
     for ability in AbilityList:
         all_abilities &= Has(ability)

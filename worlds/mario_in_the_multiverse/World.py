@@ -24,6 +24,14 @@ class MitmWorld(World):
 
     origin_region_name = "Hub"
 
+    def pre_fill(self):
+        if not self.options.shopsanity:
+            self.get_location("Shop Item 1").place_locked_item( self.create_item("Compass"))
+            self.get_location("Shop Item 2").place_locked_item( self.create_item("Magic Mirror"))
+            self.get_location("Shop Item 3").place_locked_item( self.create_item("Lon Lon Milk"))
+            self.get_location("Shop Item 4").place_locked_item( self.create_item("Power Star"))
+            self.get_location("Shop Item 5").place_locked_item( self.create_item("Atreus' Artifact"))
+
     def create_regions(self):
         self.main_region = Region("Hub",self.player,self.multiworld)
         self.multiworld.regions += [self.main_region]

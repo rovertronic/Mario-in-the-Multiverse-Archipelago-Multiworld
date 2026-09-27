@@ -28,7 +28,7 @@ def set_all_rules(world: MitmWorld) -> None:
     world.set_rule(world.get_location("Mario Mushroom Havoc Painting"), Has("Shock Rocket"))
     world.set_rule(world.get_location("Opportunity Painting"), Has("HM Fly") & Has("Dash Booster"))
     world.set_rule(world.get_location("Bioshock Rapture Painting"), Has("Helmet & Drill"))
-    world.set_rule(world.get_location("Beyond the Cursed Pizza Painting"), Has("Pizza Knight") & Has("HM Fly"))
+    world.set_rule(world.get_location("Beyond the Cursed Pizza Painting"), Has("Pizza Knight") & Has("Chronos"))
     world.set_rule(world.get_location("Mario New Mecca Painting"), Has("Chronos"))
     world.set_rule(world.get_location("DOOM Painting"), Has("Doom Shotgun"))
     world.set_rule(world.get_location("Ecruteak City Painting"), Has("HM Fly"))
@@ -36,7 +36,7 @@ def set_all_rules(world: MitmWorld) -> None:
     world.set_rule(world.get_location("N-Sanity Island Painting"), Has("HM Fly"))
     world.set_rule(world.get_location("The Walking Dead: Saints, Sinners, & Mario Painting"), Has("HM Fly"))
     # No rule for Mario in Hamsterball Painting
-    world.set_rule(world.get_location("Environmental Station M Painting"), Has("Dash Booster"))
+    world.set_rule(world.get_location("Environmental Station M Painting"), Has("Dash Booster") & Has("Helmet & Drill") & Has("Pizza Knight"))
 
     # Ability Rules
     world.set_rule(world.get_location("Bubble Hat"), need_rope_cut)
@@ -143,18 +143,18 @@ def set_all_rules(world: MitmWorld) -> None:
     world.set_rule(world.get_location("From Russia With Love Star 4"), Has("Gadget Watch"))
     # 5 - No Rule
     world.set_rule(world.get_location("From Russia With Love Star 6"), HasAll("Gadget Watch", "Inkling"))
-    world.set_rule(world.get_location("From Russia With Love Star 7"), Has("Gadget Watch"))
+    world.set_rule(world.get_location("From Russia With Love Star 7"), Has("Boat Key"))
     world.set_rule(world.get_location("From Russia With Love Star 8"), HasAll("Gadget Watch", "Shock Rocket"))
 
     # Ecruteak City
     world.set_rule(world.get_location("Ecruteak City Star 1"), Has("HM Fly"))
-    # 2 - No Rule
+    world.set_rule(world.get_location("Ecruteak City Star 1"), Has("Inkling"))
     world.set_rule(world.get_location("Ecruteak City Star 3"), HasAll("Pizza Knight", "HM Fly", "Chronos"))
     world.set_rule(world.get_location("Ecruteak City Star 4"), HasAll("Helmet & Drill", "Pizza Knight"))
     world.set_rule(world.get_location("Ecruteak City Star 5"), Has("HM Fly"))
     world.set_rule(world.get_location("Ecruteak City Star 6"), Has("Shock Rocket"))
     world.set_rule(world.get_location("Ecruteak City Star 7"), HasAll("Gadget Watch", "HM Fly"))
-    world.set_rule(world.get_location("Ecruteak City Star 8"), Has("HM Fly"))
+    world.set_rule(world.get_location("Ecruteak City Star 8"), HasAll("Gadget Watch", "HM Fly") & Has("Shock Rocket") & HasAll("Helmet & Drill", "Pizza Knight") & Has("Chronos") & Has("Inkling"))
 
     # N-Sanity Island
     world.set_rule(world.get_location("N-Sanity Island Star 1"), Has("Aku Aku"))

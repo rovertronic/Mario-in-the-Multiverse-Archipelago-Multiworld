@@ -32,6 +32,11 @@ class MitmWorld(World):
             self.get_location("Shop Item 4").place_locked_item( self.create_item("Power Star"))
             self.get_location("Shop Item 5").place_locked_item( self.create_item("Atreus' Artifact"))
 
+        if not self.options.keysanity:
+            self.get_location("Blue Skull Key").place_locked_item( self.create_item("Blue Skull Key")  )
+            self.get_location("Red Skull Key").place_locked_item( self.create_item("Red Skull Key")  )
+            self.get_location("Boat Key").place_locked_item( self.create_item("Boat Key")  )
+
     def create_regions(self):
         self.main_region = Region("Hub",self.player,self.multiworld)
         self.multiworld.regions += [self.main_region]

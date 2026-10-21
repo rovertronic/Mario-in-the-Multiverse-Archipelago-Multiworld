@@ -115,10 +115,6 @@ def create_all_items(world: MitmWorld) -> None:
         world.create_item("Esteemed Mortal"),
         world.create_item("Hamster Ball"),
         world.create_item("Dash Booster"),
-
-        world.create_item("Blue Skull Key"),
-        world.create_item("Red Skull Key"),
-        world.create_item("Boat Key"),
     ]
 
     #TODO: Make level items optional
@@ -141,6 +137,11 @@ def create_all_items(world: MitmWorld) -> None:
         itempool.append(world.create_item("Lon Lon Milk"))
         itempool.append(world.create_item("Magic Mirror"))
         itempool.append(world.create_item("Atreus' Artifact"))
+
+    if world.options.keysanity:
+        itempool.append(world.create_item("Blue Skull Key"))
+        itempool.append(world.create_item("Red Skull Key"))
+        itempool.append(world.create_item("Boat Key"))   
 
 
     number_of_items = len(itempool)

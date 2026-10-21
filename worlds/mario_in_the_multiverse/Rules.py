@@ -201,8 +201,8 @@ def set_all_rules(world: MitmWorld) -> None:
     world.set_rule(world.get_location("Boat Key"), Has("Shock Rocket"))
 
     # Rule to complete game
-    all_abilities = Has("Cutter")
-    for ability in AbilityList:
-        all_abilities &= Has(ability)
+    world.set_completion_rule(Has("Power Star", count = world.options.stars_to_win.value ) &
 
-    world.set_completion_rule(Has("Power Star", count = world.options.stars_to_win.value ) & all_abilities )
+    # All abilities required to beat centrum omnium
+    Has("Pizza Knight") & Has("Bubble Hat") & Has("Aku Aku") & Has("Phasewalk") & Has("Shock Rocket")
+    & Has("HM Fly") & Has("Inkling") & Has("Hamster Ball") & Has("Gadget Watch") )

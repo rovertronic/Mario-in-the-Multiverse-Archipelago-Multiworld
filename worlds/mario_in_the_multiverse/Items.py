@@ -39,6 +39,8 @@ ITEM_NAME_TO_ID = {
     "Blue Skull Key" : 37,
     "Red Skull Key" : 38,
     "Boat Key" : 39,
+
+    "Chaingun Upgrade" : 40,
 }
 
 DEFAULT_ITEM_CLASSIFICATIONS = {

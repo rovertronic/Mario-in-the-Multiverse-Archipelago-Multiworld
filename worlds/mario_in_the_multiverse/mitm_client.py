@@ -1,7 +1,7 @@
 import asyncio
 
-from PyMemoryEditor import OpenProcess
-from PyMemoryEditor import ProcessOperationsEnum
+from .PyMemoryEditor import OpenProcess
+from .PyMemoryEditor import ProcessOperationsEnum
 
 import CommonClient
 from CommonClient import CommonContext, server_loop, get_base_parser, handle_url_arg
@@ -232,5 +232,6 @@ async def main():
 
         await asyncio.sleep(0.1)
 
-asyncio.run(main())
+def start_mitm_client():
+    asyncio.run(main())
 

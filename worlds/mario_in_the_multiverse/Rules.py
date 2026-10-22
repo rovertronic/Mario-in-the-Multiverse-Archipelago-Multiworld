@@ -7,6 +7,7 @@ from rule_builder.rules import Has, HasAll, Rule
 
 from .Global import LevelList
 from .Global import AbilityList
+from .Global import StarReqList
 
 if TYPE_CHECKING:
     from .World import MitmWorld
@@ -45,8 +46,12 @@ def set_all_rules(world: MitmWorld) -> None:
     world.set_rule(world.get_location("Esteemed Mortal"), Has("Pizza Knight"))
 
     # Level Entrance Rules
-    for level in LevelList:
-        world.set_rule( world.get_entrance(level + " Entrance"), Has(level)  )
+    if world.options.item_levels:
+        for level in LevelList:
+            world.set_rule( world.get_entrance(level + " Entrance"), Has(level)  )
+    else:
+        for i in range(15):
+            world.set_rule( world.get_entrance(LevelList[i] + " Entrance"), Has("Power Star", count = StarReqList[i]) )
 
     # Super Star Ultra
     # 1 - No Rule

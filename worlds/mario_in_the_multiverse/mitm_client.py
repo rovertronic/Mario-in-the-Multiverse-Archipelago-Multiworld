@@ -208,6 +208,7 @@ async def main():
                     star_count += 1
 
             process.write_process_memory(archipelago_buffer_start + 4*7, int, value = star_count)
+            #process.write_process_memory(archipelago_buffer_start + 4*50, int, value = ctx.slot_data["item_levels"])
 
             # Send model ids upon request
             ap_model_request = process.read_process_memory(archipelago_buffer_start + 4*31, int)

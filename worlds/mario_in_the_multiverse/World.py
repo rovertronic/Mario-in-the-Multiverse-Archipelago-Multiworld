@@ -62,3 +62,6 @@ class MitmWorld(World):
 
     def set_rules(self) -> None:
         Rules.set_all_rules(self)
+
+    def fill_slot_data(self):
+        return self.options.as_dict("stars_to_win")

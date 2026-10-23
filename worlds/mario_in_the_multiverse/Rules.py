@@ -166,15 +166,17 @@ def set_all_rules(world: MitmWorld) -> None:
     world.set_rule(world.get_location("N-Sanity Island Star 7"), Has("Aku Aku"))
     world.set_rule(world.get_location("N-Sanity Island Star 8"), Has("Aku Aku"))
 
+    cross_initial_twd_gap = Has("Chronos") | Has("Bubble Hat")
+
     # The Walking Dead: Saints, Sinners, & Mario
-    world.set_rule(world.get_location("The Walking Dead: Saints, Sinners, & Mario Star 1"), Has("Pizza Knight"))
-    world.set_rule(world.get_location("The Walking Dead: Saints, Sinners, & Mario Star 2"), Has("Esteemed Mortal"))
-    world.set_rule(world.get_location("The Walking Dead: Saints, Sinners, & Mario Star 3"), Has("Gadget Watch"))
-    world.set_rule(world.get_location("The Walking Dead: Saints, Sinners, & Mario Star 4"), Has("Gadget Watch"))
-    world.set_rule(world.get_location("The Walking Dead: Saints, Sinners, & Mario Star 5"), Has("Helmet & Drill"))
-    world.set_rule(world.get_location("The Walking Dead: Saints, Sinners, & Mario Star 6"), Has("Doom Shotgun"))
-    world.set_rule(world.get_location("The Walking Dead: Saints, Sinners, & Mario Star 7"), HasAll("Inkling", "Doom Shotgun"))
-    world.set_rule(world.get_location("The Walking Dead: Saints, Sinners, & Mario Star 8"), HasAll("Inkling", "Shock Rocket"))
+    world.set_rule(world.get_location("The Walking Dead: Saints, Sinners, & Mario Star 1"), Has("Pizza Knight") & cross_initial_twd_gap)
+    world.set_rule(world.get_location("The Walking Dead: Saints, Sinners, & Mario Star 2"), Has("Esteemed Mortal") & cross_initial_twd_gap)
+    world.set_rule(world.get_location("The Walking Dead: Saints, Sinners, & Mario Star 3"), Has("Gadget Watch") & cross_initial_twd_gap)
+    world.set_rule(world.get_location("The Walking Dead: Saints, Sinners, & Mario Star 4"), Has("Gadget Watch") & cross_initial_twd_gap)
+    world.set_rule(world.get_location("The Walking Dead: Saints, Sinners, & Mario Star 5"), Has("Helmet & Drill") & cross_initial_twd_gap)
+    world.set_rule(world.get_location("The Walking Dead: Saints, Sinners, & Mario Star 6"), Has("Doom Shotgun") & cross_initial_twd_gap)
+    world.set_rule(world.get_location("The Walking Dead: Saints, Sinners, & Mario Star 7"), HasAll("Inkling", "Doom Shotgun") & cross_initial_twd_gap)
+    world.set_rule(world.get_location("The Walking Dead: Saints, Sinners, & Mario Star 8"), HasAll("Inkling", "Shock Rocket") & cross_initial_twd_gap)
 
     # Mario in Hamsterball
     # 1 - No Rule
@@ -201,7 +203,7 @@ def set_all_rules(world: MitmWorld) -> None:
     world.set_rule(world.get_location("Boat Key"), Has("Shock Rocket"))
 
     # Rule to complete game
-    world.set_completion_rule(Has("Power Star", count = world.options.stars_to_win.value ) &
+    world.set_completion_rule(Has("Power Star", count = world.options.stars_to_win.value ) & Has("Atreus' Artifact") &
 
     # All abilities required to beat centrum omnium
     Has("Pizza Knight") & Has("Bubble Hat") & Has("Aku Aku") & Has("Phasewalk") & Has("Shock Rocket")

@@ -7,6 +7,7 @@ import CommonClient
 from CommonClient import CommonContext, server_loop, get_base_parser, handle_url_arg
 from argparse import Namespace
 from NetUtils import ClientStatus
+from typing import TYPE_CHECKING, Any
 
 import colorama
 
@@ -30,6 +31,9 @@ def n64_string(s):
 
 def name_to_model_id(name) -> int:
     name_lower = name.lower()
+
+    if name_lower == "super star ultra":
+        return 1
 
     # Power Stars (Any game)
     if "star" in name_lower:
@@ -79,7 +83,7 @@ def name_to_model_id(name) -> int:
         return 18
 
     if name_lower == "dash booster":
-        return 19
+        return 20
 
     # Generic models (For fun)
     if "bomb" in name_lower or "explosive" in name_lower:
@@ -97,6 +101,12 @@ def name_to_model_id(name) -> int:
 class MitmContext(CommonContext):
     game = "Mario in the Multiverse"
     items_handling = 7
+
+    slot_data: dict[str, Any]
+
+    def __init__(self, server_address: str | None = None, password: str | None = None, delay_intro_song: bool = False) -> None:
+        super().__init__(server_address, password)
+        self.slot_data = {}
 
     async def server_auth(self, password_requested=False):
         global process
@@ -130,6 +140,7 @@ class MitmContext(CommonContext):
             
         if cmd == "Connected":
             process.write_process_memory(archipelago_buffer_start + 4*5, int, value = 1)
+            self.slot_data = args["slot_data"]
         
         if cmd == "ReceivedItems":
             for item in args["items"]:
@@ -203,11 +214,19 @@ async def main():
 
             # Send Star Count
             star_count = 0
+            coin_count = 0
             for item in ctx.items_received:
                 if item.item == 20:
                     star_count += 1
 
+                if item.item == 21:
+                    coin_count += 1
+
             process.write_process_memory(archipelago_buffer_start + 4*7, int, value = star_count)
+            process.write_process_memory(archipelago_buffer_start + 4*34, int, value = coin_count)
+
+            # Send the amount of stars u need
+            process.write_process_memory(archipelago_buffer_start + 4*35, int, value = ctx.slot_data["stars_to_win"])
 
             # Send model ids upon request
             ap_model_request = process.read_process_memory(archipelago_buffer_start + 4*31, int)

@@ -118,6 +118,11 @@ class MitmContext(CommonContext):
                 process = OpenProcess(name = "retroarch.exe")
 
                 matches = list(process.search_by_value(str, value = n64_string("MITM AP BUFFER  ")))
+
+                if len(matches) == 0:
+                    # Memory not initialized
+                    break
+
                 for address in matches:
                     print(f"Found at 0x{address:X}")
                     archipelago_buffer_start = address
@@ -205,7 +210,7 @@ async def main():
                 await ctx.check_locations({location_get})
 
                 info = ctx.locations_info.get(location_get)
-                if info:
+                if info and info.player != ctx.slot:
                     sendstr = "Sent " + ctx.item_names.lookup_in_slot( info.item, info.player ) + " to " + ctx.player_names[info.player]
                     process.write_process_memory(archipelago_buffer_start + 4*8, str, value = n64_string(sendstr + '\0') )
                     process.write_process_memory(archipelago_buffer_start + 4*22, int, value = 400)
@@ -227,6 +232,7 @@ async def main():
 
             # Send the amount of stars u need
             process.write_process_memory(archipelago_buffer_start + 4*35, int, value = ctx.slot_data["stars_to_win"])
+            process.write_process_memory(archipelago_buffer_start + 4*50, int, value = ctx.slot_data["item_levels"])
 
             # Send model ids upon request
             ap_model_request = process.read_process_memory(archipelago_buffer_start + 4*31, int)

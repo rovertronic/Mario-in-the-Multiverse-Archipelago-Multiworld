@@ -119,20 +119,15 @@ def create_all_items(world: MitmWorld) -> None:
         world.create_item("Dash Booster"),
     ]
 
-    #TODO: Make level items optional
-
-    unlock_first = valid_first_world_indices[world.random.randint(0,5)]
-    
-    for i in range(15):
-        if i == unlock_first:
-            world.push_precollected(world.create_item(LevelList[i]))
-        else:
-            itempool.append(world.create_item(LevelList[i]))
-
-    for i in range(120):
-        itempool.append(world.create_item("Power Star") )
-
     # Items added due to special options
+    if world.options.item_levels:
+        unlock_first = valid_first_world_indices[world.random.randint(0,5)]
+        for i in range(15):
+            if i == unlock_first:
+                world.push_precollected(world.create_item(LevelList[i]))
+            else:
+                itempool.append(world.create_item(LevelList[i]))
+
     if world.options.shopsanity:
         itempool.append(world.create_item("Power Star"))
         itempool.append(world.create_item("Compass"))
@@ -145,7 +140,11 @@ def create_all_items(world: MitmWorld) -> None:
         itempool.append(world.create_item("Red Skull Key"))
         itempool.append(world.create_item("Boat Key"))   
 
+    # Add all stars to the item pool (Subtract excess stars if items>checks)
+    for i in range(120):
+        itempool.append(world.create_item("Power Star") )
 
+    # Tally up all items
     number_of_items = len(itempool)
     number_of_unfilled_locations = len(world.multiworld.get_unfilled_locations(world.player))
     needed_number_of_filler_items = number_of_unfilled_locations - number_of_items

@@ -33,3 +33,21 @@ AbilityList = [
     "Hamster Ball",
     "Dash Booster",
 ]
+
+StarReqList = [
+0, #c1
+2, #c2
+2, #c3
+5, #c4
+10,#c5
+15,#c6
+20,#c7
+20,#c8
+30,#c9
+30,#c10
+40,#c11
+50,#c12
+50,#c13
+60,#c14
+60,#c15
+]

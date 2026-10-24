@@ -113,15 +113,15 @@ class MitmContext(CommonContext):
         global archipelago_buffer_start
 
         logging.getLogger("Client").info("Waiting for Mario in the Multiverse in Retroarch.exe")
-        while process == None:
+        while True:
             try:
                 process = OpenProcess(name = "retroarch.exe")
-
                 matches = list(process.search_by_value(str, value = n64_string("MITM AP BUFFER  ")))
 
                 if len(matches) == 0:
                     # Memory not initialized
-                    break
+                    await asyncio.sleep(0.1)
+                    continue
 
                 for address in matches:
                     print(f"Found at 0x{address:X}")
@@ -130,7 +130,16 @@ class MitmContext(CommonContext):
 
                 process.write_process_memory(archipelago_buffer_start + 4*4, int, value = 1)
 
-                logging.getLogger("Client").info("Connected to Mario in the Multiverse in Retroarch.exe")
+                if len(matches) == 1:
+                    logging.getLogger("Client").info("Connected to Mario in the Multiverse in Retroarch.exe")
+                    break
+
+                if len(matches) > 1:
+                    logging.getLogger("Client").info("Something went wrong. Restart the client!")
+                    while True:
+                        await asyncio.sleep(0.1)
+                        pass
+
             except:
                 pass
 
@@ -164,7 +173,6 @@ class MitmContext(CommonContext):
                 curflags = process.read_process_memory(archipelago_buffer_start + 4*20 + mem_slot, int)
                 process.write_process_memory(archipelago_buffer_start + 4*20 + mem_slot, int, value = curflags | (1 << mem_bit))
 
-
 async def main():
     parser = CommonClient.get_base_parser()
     parser.add_argument("--name", default=None, help="Slot Name to connect as.")
@@ -181,11 +189,15 @@ async def main():
 
     ctx.ui.base_title = "Mario in the Multiverse Client"
 
+    locations_scouted = False
+
     while not ctx.exit_event.is_set():
         if ctx.slot is not None:
 
             # Scout to recieve item and player names
-            if len(ctx.locations_info) == 0:
+            if not locations_scouted:#len(ctx.locations_info) == 0:
+                locations_scouted = True
+
                 await ctx.send_msgs([{
                     "cmd": "LocationScouts",
                     "locations":  list(range(1,6)),
@@ -246,8 +258,9 @@ async def main():
             if requested_item_name > 0:
 
                 info = ctx.locations_info.get(requested_item_name)
-                sendstr = ctx.player_names[info.player] + "'s " + ctx.item_names.lookup_in_slot(info.item,info.player)
-                process.write_process_memory(archipelago_buffer_start + 4*37, str, value = n64_string(sendstr + '\0') )
+                if info:
+                    sendstr = ctx.player_names[info.player] + "'s " + ctx.item_names.lookup_in_slot(info.item,info.player)
+                    process.write_process_memory(archipelago_buffer_start + 4*37, str, value = n64_string(sendstr + '\0') )
                 pass
 
             # Toggle already-sent flags

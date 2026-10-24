@@ -33,6 +33,8 @@
 *.BIN
 *.puml
 
+# The only reason I did this change is because i was playing mc ap with my irl buddies in my dev client oops
+Minecraft AP Server Directory/*
 setups
 build
 bundle/components.wxs

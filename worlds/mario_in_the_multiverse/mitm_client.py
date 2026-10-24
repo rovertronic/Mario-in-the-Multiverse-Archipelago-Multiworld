@@ -241,6 +241,15 @@ async def main():
                 if info:
                     process.write_process_memory(archipelago_buffer_start + 4*32, int, value = name_to_model_id(ctx.item_names.lookup_in_slot(info.item,info.player) )  )
 
+            # Send item name
+            requested_item_name = process.read_process_memory(archipelago_buffer_start + 4*36, int)
+            if requested_item_name > 0:
+
+                info = ctx.locations_info.get(requested_item_name)
+                sendstr = ctx.player_names[info.player] + "'s " + ctx.item_names.lookup_in_slot(info.item,info.player)
+                process.write_process_memory(archipelago_buffer_start + 4*37, str, value = n64_string(sendstr + '\0') )
+                pass
+
             # Toggle already-sent flags
             for location_id in ctx.checked_locations:
                 mem_slot = (location_id) // 32
